@@ -236,7 +236,8 @@ def create_simple_tear_sheet(returns,
                              estimate_intraday='infer',
                              live_start_date=None,
                              turnover_denom='AGB',
-                             header_rows=None):
+                             header_rows=None,
+                             if_plot=True):
     """
     Simpler version of create_full_tear_sheet; generates summary performance
     statistics and important plots as a single image.
@@ -332,7 +333,8 @@ def create_simple_tear_sheet(returns,
                              turnover_denom=turnover_denom,
                              live_start_date=live_start_date,
                              header_rows=header_rows)
-
+    if not if_plot:
+        return
     fig = plt.figure(figsize=(14, vertical_sections * 6))
     gs = gridspec.GridSpec(vertical_sections, 3, wspace=0.5, hspace=0.5)
 
